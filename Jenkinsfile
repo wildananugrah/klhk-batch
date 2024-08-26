@@ -47,10 +47,10 @@ pipeline {
             }
         }
 
-        stage('Done.') {
+        stage('Build & Run.') {
           steps {
-            sleep 20
-            sh "exit 0"  
+            sh "cd ./klhk-batch"
+            sh "npm run start"  
           }
         }
 
