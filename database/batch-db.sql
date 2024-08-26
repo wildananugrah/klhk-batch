@@ -28,6 +28,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- END
+
 CREATE TRIGGER trg_insert_submission_tmp
 AFTER INSERT ON public.submission_attachments
 FOR EACH ROW
