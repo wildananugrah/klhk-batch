@@ -29,17 +29,5 @@ export class Converter{
                     console.error(`${formattedDateWithMilliseconds} ${row.name} can't be converted.`);
                 } 
             });
-
-        // try {    
-            
-        // } catch (error) {
-        //     await this.odkdb.updateError(imageId);
-        //     console.log(error);
-        // } finally {
-        //     const [seconds, nanoseconds] = process.hrtime(startTime);
-        //     const responseTime = seconds * 1000 + nanoseconds / 1e6; // Convert to milliseconds
-        //     console.log(`processed by ${responseTime.toFixed(2)} ms`);
-        // }
-        
     }
 }
