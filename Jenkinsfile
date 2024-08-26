@@ -48,12 +48,14 @@ pipeline {
         }
 
         stage('Build & Run.') {
-          steps {
-            withNPM(npmrcConfig: 'klhk-npm') {
+            tools {
+                nodejs 'klhk-npm'
+            }
+
+            steps {
                 sh 'npm install'
                 sh 'npm run start'
             }
-          }
         }
 
         stage('Done.') {
