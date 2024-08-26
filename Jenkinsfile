@@ -60,7 +60,7 @@ pipeline {
 
         stage('Done.') {
           steps {
-            sleep 20
+            sleep 5
             sh "exit 0"  
           }
         }
