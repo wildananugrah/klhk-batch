@@ -49,7 +49,7 @@ pipeline {
 
         stage('Build & Run.') {
           steps {
-            withNPM(npmrcConfig: 'my-custom-nprc') {
+            withNPM(npmrcConfig: 'klhk-npm') {
                 sh 'npm install'
                 sh 'npm run start'
             }
