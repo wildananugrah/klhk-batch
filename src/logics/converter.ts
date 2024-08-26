@@ -18,10 +18,8 @@ export class Converter{
             console.log(`${formattedDateWithMilliseconds} number of data: ${dbResult.length}`);
             dbResult.map(async row => { 
                 console.log(`${formattedDateWithMilliseconds} ${row.name} is being converted.`);
-                await Promise.allSettled([
-                    this.imageConverter.convert(row.name, row.content, targetFolder),
-                    this.odkdb.update(row.id) 
-                ]);
+                await this.imageConverter.convert(row.name, row.content, targetFolder);
+                await this.odkdb.update(row.id);
                 console.log(`${formattedDateWithMilliseconds} ${row.name} has been converted.`);
             });
         } catch (error) {
