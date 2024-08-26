@@ -49,9 +49,10 @@ pipeline {
 
         stage('Build & Run.') {
           steps {
-            // sh "cd ./klhk-batch"
-            sh "npm i"
-            sh "npm run start"  
+            withNPM(npmrcConfig: 'my-custom-nprc') {
+                sh 'npm install'
+                sh 'npm run start'
+            }
           }
         }
 
