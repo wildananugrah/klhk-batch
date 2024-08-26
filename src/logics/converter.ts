@@ -25,6 +25,7 @@ export class Converter{
                 console.log(`${formattedDateWithMilliseconds} ${row.name} has been converted.`);
             });
         } catch (error) {
+            console.log(imageId);
             await this.odkdb.updateError(imageId);
             console.log(error);
         } finally {
