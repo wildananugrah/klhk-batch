@@ -13,16 +13,19 @@ export class Converter{
     async run() {
         const startTime = process.hrtime();
         console.log(`${formattedDateWithMilliseconds} started.`);
+        let imageId = "";
         try {    
             const dbResult = await this.odkdb.list(limitImages);
             console.log(`${formattedDateWithMilliseconds} number of data: ${dbResult.length}`);
             dbResult.map(async row => { 
                 console.log(`${formattedDateWithMilliseconds} ${row.name} is being converted.`);
                 await this.imageConverter.convert(row.name, row.content, targetFolder);
+                imageId = row.id;
                 await this.odkdb.update(row.id);
                 console.log(`${formattedDateWithMilliseconds} ${row.name} has been converted.`);
             });
         } catch (error) {
+            await this.odkdb.updateError(imageId);
             console.log(error);
         } finally {
             const [seconds, nanoseconds] = process.hrtime(startTime);
