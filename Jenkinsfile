@@ -50,6 +50,7 @@ pipeline {
         stage('Build & Run.') {
           steps {
             // sh "cd ./klhk-batch"
+            sh "npm i"
             sh "npm run start"  
           }
         }
