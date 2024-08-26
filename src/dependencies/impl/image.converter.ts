@@ -20,11 +20,11 @@ export class ImageConverter implements IImageConverter {
         const thumbWidth = Math.floor(width * 0.07);
         const thumbHeight = Math.floor(height * 0.07);
 
-        await sharp(blobContent)
+        await sharp(blobContent, { failOnError: false })
             .resize(mediumWidth, mediumHeight)
             .toFile(path.join(targetFolder, `medium_${filename}`));
 
-        await sharp(blobContent)
+        await sharp(blobContent, { failOnError: false })
             .resize(thumbWidth, thumbHeight)
             .toFile(path.join(targetFolder, `thumb_${filename}`));
     }

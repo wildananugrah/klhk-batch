@@ -37,7 +37,6 @@ export class ODKDB implements IODKDB {
 
   async updateError(id: string): Promise<boolean>{
     const client = await this.pool.connect();
-    console.log(id);
     try {
       await client.query(this.queryUpdateError, [id]);
       return true;
