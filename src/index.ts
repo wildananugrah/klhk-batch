@@ -15,21 +15,20 @@ import {
   } from "./configs/db.config";
 import { Pool } from "pg";
 import { ImageConverter } from "./dependencies/impl/image.converter";
-import { formattedDateWithMilliseconds } from "./helpers/common.helper";
   
-  const config = {
-    host: dbhost,
-    database: dbDatabase,
-    port: dbPort,
-    user: dbUser,
-    password: dbPass,
-    ssl: false,
-    min: dbPoolMin,
-    max: dbPoolMax,
-    idleTimeoutMillis: dbIdleTimeout,
-    connectionTimeoutMillis: dbConnectionTimeout,
-    maxUses: dbMaxUses,
-  };
+const config = {
+  host: dbhost,
+  database: dbDatabase,
+  port: dbPort,
+  user: dbUser,
+  password: dbPass,
+  ssl: false,
+  min: dbPoolMin,
+  max: dbPoolMax,
+  idleTimeoutMillis: dbIdleTimeout,
+  connectionTimeoutMillis: dbConnectionTimeout,
+  maxUses: dbMaxUses,
+};
 
 const pool = new Pool(config);
 const odkdb = new ODKDB(pool);
