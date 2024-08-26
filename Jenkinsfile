@@ -14,6 +14,7 @@ pipeline {
     string(name: "DB_CONNECTION_TIMEOUT", defaultValue: "1000", description: "DB_CONNECTION_TIMEOUT ?")
     string(name: "DB_MAX_USES", defaultValue: "7500", description: "DB_MAX_USES ?")
     string(name: "LIMIT_IMAGES", defaultValue: "5", description: "LIMIT_IMAGES ?")
+    string(name: "APP_TARGET_FOLDER", defaultValue: "./path/to/image/folder", description: "APP_TARGET_FOLDER ?")
   }
   options {
     disableConcurrentBuilds()
@@ -39,8 +40,7 @@ pipeline {
                 sh "echo DB_CONNECTION_TIMEOUT=${params.DB_CONNECTION_TIMEOUT} >> .env"
                 sh "echo DB_MAX_USES=${params.DB_MAX_USES} >> .env"
                 sh "echo LIMIT_IMAGES=${params.LIMIT_IMAGES} >> .env"
-
-                // sh "mv .env"
+                sh "echo APP_TARGET_FOLDER=${params.APP_TARGET_FOLDER} >> .env"
 
                 sh "mkdir -p ./images"
 
