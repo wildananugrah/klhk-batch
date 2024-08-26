@@ -22,10 +22,11 @@ export class Converter{
                     console.log(`${formattedDateWithMilliseconds} ${row.name} is being converted.`);
                     await this.imageConverter.convert(row.name, row.content, targetFolder);
                     await this.odkdb.update(row.id);
-                    console.log(`${formattedDateWithMilliseconds} ${row.name} has been converted.`);
+                    console.error(`${formattedDateWithMilliseconds} ${row.name} has been converted.`);
                 } catch (error) {
                     console.log(error);
                     await this.odkdb.updateError(row.id);
+                    console.error(`${formattedDateWithMilliseconds} ${row.name} can't be converted.`);
                 } 
             });
 
