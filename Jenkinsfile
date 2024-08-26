@@ -40,9 +40,9 @@ pipeline {
                 sh "echo DB_MAX_USES=${params.DB_MAX_USES} >> .env"
                 sh "echo LIMIT_IMAGES=${params.LIMIT_IMAGES} >> .env"
 
-                sh "mv .env ./klhk-batch"
+                // sh "mv .env"
 
-                sh "mkdir -p ./klhk-batch/images"
+                sh "mkdir -p ./images"
 
             }
         }
