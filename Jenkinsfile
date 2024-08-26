@@ -41,7 +41,17 @@ pipeline {
                 sh "echo LIMIT_IMAGES=${params.LIMIT_IMAGES} >> .env"
 
                 sh "mv .env ./klhk-batch"
+
+                sh "mkdir -p ./klhk-batch/images"
+
             }
+        }
+
+        stage('Done.') {
+          steps {
+            sleep 20
+            sh "exit 0"  
+          }
         }
 
         stage('Done.') {
