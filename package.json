@@ -1,7 +1,7 @@
 {
   "name": "batch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Image Compressor Batch",
   "main": "index.js",
   "scripts": {
     "test:ts": "jest -i src/tests/*.test.ts",

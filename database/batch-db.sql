@@ -28,12 +28,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- END --
-
 CREATE TRIGGER trg_insert_submission_tmp
 AFTER INSERT ON public.submission_attachments
 FOR EACH ROW
 EXECUTE FUNCTION insert_into_submission_tmp();
+
+-- END --
 
 -- SEEDING
 -- INSERT INTO public.tbl_mst_submission_tmp ("name", "content", "contentType")
